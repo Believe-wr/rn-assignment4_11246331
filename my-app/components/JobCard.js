@@ -1,45 +1,63 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 
-const JobCard = ({ title, company, salary, location }) => {
+const JobCard = ({ title, company, salary, location, logo }) => {
   return (
     <View style={styles.card}>
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.company}>{company}</Text>
-      <Text style={styles.salary}>{salary}</Text>
-      <Text style={styles.location}>{location}</Text>
+      <Image source={logo} style={styles.logo} />
+      <View style={styles.details}>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.company}>{company}</Text>
+      </View>
+      <View style={styles.rightContainer}>
+        <Text style={styles.salary}>{salary}</Text>
+        <Text style={styles.location}>{location}</Text>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   card: {
-    borderWidth: 1,
-    borderColor: '#ddd',
-    padding: 20,
-    margin: 10,
-    borderRadius: 5,
+    flexDirection: 'row',
+    backgroundColor: '#fff',
+    padding: 10,
+    borderRadius: 10,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
-    shadowRadius: 5,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 8,
+    elevation: 1,
+    marginBottom: 15,
+    alignItems: 'center',
+  },
+  logo: {
+    width: 50,
+    height: 50,
+    borderRadius: 10,
+    marginRight: 15,
+  },
+  details: {
     flex: 1,
-    marginBottom: 20,
   },
   title: {
-    fontSize: 18,
-    color: '#2c3e50',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
   company: {
-    fontSize: 16,
+    fontSize: 14,
     color: '#7f8c8d',
+  },
+  rightContainer: {
+    alignItems: 'flex-end',
   },
   salary: {
-    fontSize: 16,
-    color: '#7f8c8d',
+    fontSize: 14,
+    color: '#2c3e50',
+    marginTop: 5,
   },
   location: {
-    fontSize: 16,
+    fontSize: 12,
     color: '#7f8c8d',
   },
 });

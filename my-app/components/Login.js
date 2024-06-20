@@ -26,8 +26,14 @@ const Login = ({ setUser }) => {
         value={email}
         onChangeText={(text) => setEmail(text)}
       />
-      <Button title="Log in" onPress={handleLogin} color="#2980b9" />
-      <Text style={styles.orText}>Or continue with</Text>
+      <View style={styles.buttonContainer}>
+        <Button title="Login" onPress={handleLogin} color="#356899" />
+      </View>
+      <View style={styles.separatorContainer}>
+        <View style={styles.separatorLine}></View>
+        <Text style={styles.orText}>Or continue with</Text>
+        <View style={styles.separatorLine}></View>
+      </View>
       <View style={styles.socialButtons}>
         <TouchableOpacity style={styles.socialButton} key="apple">
           <Image
@@ -63,43 +69,56 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffff',
     padding: 20,
   },
-  
   title: {
     fontSize: 32,
-    color: '#2c3e50',
+    color: '#356899',
     marginBottom: 20,
+    textAlign: 'left',
   },
   subtitle: {
     fontSize: 24,
-    color: '#34495e',
+    color: '#0D0D26',
     marginBottom: 10,
+    fontWeight: 'bold',
   },
   description: {
     color: '#7f8c8d',
     marginBottom: 40,
   },
-  input: {
+   input: {
     width: '50%',
     padding: 15,
     marginBottom: 20,
     borderRadius: 5,
-    borderColor: '#ddd',
     borderWidth: 1,
   },
+  separatorContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 20,
+  },
+  separatorLine: {
+    flex: 1,
+    height: 1,
+    backgroundColor: '#ccc',
+  },
   orText: {
-    margin: 20,
+    marginHorizontal: 10,
     color: '#7f8c8d',
   },
   socialButtons: {
     flexDirection: 'row',
     justifyContent: 'center',
     marginHorizontal: 10,
-      },
+  },
   socialButton: {
-    padding: 10,
+    padding: 0,
     margin: 10,
     borderRadius: 5,
-      },
+  },
+  buttonContainer: {
+    width: '50%',
+  },
   logo: {
     width: 70,
     height: 50,
